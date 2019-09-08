@@ -1,5 +1,5 @@
 const find_all_duplicates = function(nums) {
-  duplicateNumbers = [];
+ let duplicateNumbers = [];
 
   for(let i=0;i<nums.length;i++){
     while(nums[i] !== nums[nums[i]-1]){
