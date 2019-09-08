@@ -10,7 +10,7 @@ class TreeNode {
 
 const traverse = function(root) {
 
-  result = [];
+  let result = [];
 
   let queue = [root];
 
