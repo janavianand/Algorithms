@@ -1,5 +1,5 @@
 const can_partition = function(num) {
-  // TODO: Write your code here
+
   let sum = num.reduce((a,b)=>a+b,0)
   if(num.length === 0 || sum%2) return false
   return helper(num,0,sum/2);
