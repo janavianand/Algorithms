@@ -8,7 +8,7 @@
 /**
  * @param {number[]} preorder
  * @param {number[]} inorder
- * @return {TreeNode}
+ * @return
  */
 var buildTree = function(preorder, inorder) {
     return create(preorder,inorder,0,inorder.length-1,0,preorder.length-1)
