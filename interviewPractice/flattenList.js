@@ -36,7 +36,7 @@ function flattenList(list){
 
       temp.next = node.next || null
 
-      node.next && node.next.prev = temp
+      if(node.next){node.next.prev = temp}
 
       node.next = child
 
