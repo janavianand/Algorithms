@@ -22,9 +22,9 @@ var minAreaRect = function(points) {
       if(pair.length === 1) continue
 
       let hash = []
-
+      //Now collect all the x-coordinate that has same y as in the pair
       for(let k =i+1; k<points.length;k++){
-          // if only one pair then continue the for loop. dont proceed to the check
+          // if only one pair then continue the for loop. dont proceed to the check or if the x-corordinate does not match , it does not make a pair
           if(k<points.length-1 && points[k][0] !== points[k+1][0] && points[k-1][0] !== points[k][0]){
               hash = []
               continue
