@@ -50,3 +50,36 @@ function generatePermute(nums,n,result){
         }
     }
 }
+
+
+//__________________________________________
+//Method 2
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permute = function(nums) {
+  if(!nums.length){
+      return 0
+  }
+  let result = []
+  helper(nums,0,nums.length-1,result)
+  return result
+};
+
+function helper(nums,start,end,result){
+  if(start === end){
+      result.push([...nums])
+      return
+  }
+  for(let i=start;i<=end;i++){
+      swap(nums,i,start)
+      helper(nums,start+1,end,result)
+      swap(nums,start,i)
+  }
+}
+
+function swap(arr,i,j){
+  [arr[i],arr[j]] = [arr[j],arr[i]]
+}
