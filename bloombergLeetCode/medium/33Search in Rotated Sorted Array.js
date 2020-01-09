@@ -22,6 +22,19 @@ Output: -1
 Link - https://leetcode.com/problems/search-in-rotated-sorted-array/
 */
 
+
+/*
+Algo
+
+1. Try to isolate the order.
+2. if the mid < target and the end > target then we located order
+3. or if the mid > target and the start < target then that might be a range we can get the target
+
+
+
+*/
+
+
 /**
  * @param {number[]} nums
  * @param {number} target
