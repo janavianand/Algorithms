@@ -32,6 +32,18 @@ Link - https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii
 
 */
 
+/*
+
+Algo
+
+1. have a stack and push the character in the stack only if
+    1. previous character in the stack is not equal
+    2. or previos character count + this letter is less than given k
+
+2. Finally return all the letters in the stack. USE STRING.REPEAT() .
+
+*/
+
 /**
  * @param {string} s
  * @param {number} k
