@@ -14,6 +14,25 @@ Link - https://leetcode.com/problems/valid-triangle-number/
 
 */
 
+/*
+
+Algo
+
+basic validation for a triangle = a+b < c ; b+c < a and a+c < b
+we can use brute force
+
+else
+
+sort the numbers
+
+that gives a+b < c given c > a and c > b; since we sorted the array, the giiven condition gets satisfied. so all we have to do is find all the combination with a+b < c
+
+so for finding the combination, we can increment the count for each combo or
+
+find the upper limit num[k] such that num[i]+num[j] > num[k]. from that, we know that all the above combiniations are valid triangle. so count = k-j-1.
+
+*/
+
 /**
  * @param {number[]} nums
  * @return {number}
