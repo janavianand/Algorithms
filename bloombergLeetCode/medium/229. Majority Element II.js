@@ -16,6 +16,29 @@ Output: [1,2]
 Link - https://leetcode.com/problems/majority-element-ii/
 */
 
+/*
+
+Algo
+
+Boyer-moore solution
+
+we know that the for a given array we can get max two elements that might exceed the count.
+
+ex - [1,1,1,2,2,3,3,3] => a number cannot exceed 2. so output [1,3]
+ex - [1,1,1,2,2,3,3,3] => a number cannot exceed 3, output []
+
+Hence it is obvious that an array cannot have more than 2 invalid repeating numbers since the criteria is (more than n/3). if its n/4, then we will have 3 max numbers.
+
+with that in mind. follow the algo below
+
+1. have a dummy compare1 and compare2 and its corresponding count
+2. increment corresponding count if you encounter the value
+3. if the count is 0 then that means that value has repeated valid amount of time. so update the compare1 or compare2 according when encountering nums[i]!== compare. set count to 1
+
+once outside the loop, check if the compare1 and compare2 count in nums array. if its greater than n/3 then push it in the result
+
+*/
+
 /**
  * @param {number[]} nums
  * @return {number[]}
