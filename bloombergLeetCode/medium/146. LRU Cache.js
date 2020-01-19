@@ -13,7 +13,7 @@ Could you do both operations in O(1) time complexity?
 
 Example:
 
-LRUCache cache = new LRUCache( 2 /* capacity */ );
+LRUCache cache = new LRUCache( 2 /* capacity */ //);
 /*
 cache.put(1, 1);
 cache.put(2, 2);
@@ -141,25 +141,6 @@ class LinkedList{
           node.prev = this.tail
           this.tail = node
           node.next = null
-      }
-  }moveNodeToHead(node){
-      if(this.head !== node){
-
-          let prevNode = node.prev || null
-          let nextNode = node.next || null
-
-          if(prevNode){
-              prevNode.next = nextNode
-              if(this.tail === node){
-                  this.tail = prevNode
-              }
-          }
-          if(nextNode){
-              nextNode.prev = prevNode
-          }
-          node.next = this.head
-          node.prev = null
-          this.head = node
       }
   }
 }
