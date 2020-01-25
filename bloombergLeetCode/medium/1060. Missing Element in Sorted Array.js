@@ -52,3 +52,37 @@ var missingElement = function(nums, k) {
 
     return nums[nums.length-1]+Math.abs(k-totalMissing)
 };
+
+
+//Method-2 Binary search
+
+var missingElement = function(nums, k) {
+    if(!nums.length){
+        return -1
+    }
+
+    if(!k){
+        return nums[0]
+    }
+
+    let start = 0
+    let end = nums.length-1
+
+    if(nums[end]-nums[start]-end < k){
+        return nums[end] + k -(nums[end]-nums[start]-end)
+    }
+
+    while(start+1<end){
+        let mid = start + Math.floor((end - start) / 2);
+
+        let diff = nums[mid]-nums[start]-(mid-start)
+
+        if(diff<k){
+            start = mid
+            k -= diff
+        }else{
+            end = mid
+        }
+    }
+    return nums[start]+k
+};
