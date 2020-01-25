@@ -25,6 +25,15 @@ The missing numbers are [3,5,6,7,...], hence the third missing number is 6.
 
 Link - https://leetcode.com/problems/missing-element-in-sorted-array/
 
+
+Algo:
+
+1. Go over the leetcode solution
+2. Make sure to reset the start and end to mid
+3. the while loop must strictly check for start+1 < end
+4. the goal is to narrow down the lower limit or start and updating the k value such that we return the lower limit + k
+5. the if case outside the loop is to check if the missing number is out the array
+
 */
 
 //METHOD -1 Linear time. not optimal
