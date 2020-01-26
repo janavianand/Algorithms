@@ -47,3 +47,22 @@ function countZero(nums){
     })
     return count
 }
+
+
+//method 2 - Optimized
+
+var moveZeroes = function(nums) {
+    let nonZeroIndex = 0
+
+    for(let i=0;i<nums.length;i++){
+        if(nums[i] !== 0){
+            swap(nums,i,nonZeroIndex)
+            nonZeroIndex += 1
+        }
+    }
+    return nums
+}
+
+function swap(nums,i,j){
+    [nums[i],nums[j]] = [nums[j],nums[i]]
+}
