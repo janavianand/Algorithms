@@ -95,7 +95,7 @@ var verticalOrder = function(root) {
 
     let result = []
     let queue = [root]
-
+    // used to track the root in result array. With track, its easy to add nodes to its corresponding order
     let track = 0
 
     while(queue.length){

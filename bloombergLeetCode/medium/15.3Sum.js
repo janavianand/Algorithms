@@ -18,6 +18,10 @@ A solution set is:
 
 Link - https://leetcode.com/problems/3sum/
 
+Queestions to ask
+
+Will there be repeated numbers
+
 */
 /**
  * @param {number[]} nums
@@ -45,12 +49,14 @@ var threeSum = function(nums) {
                 result.push([nums[i],nums[start],nums[end]])
                 start+=1
                 end-=1
+                //doubtful
                 while(nums[start]=== nums[start-1]){
                 start+=1
                 }
                 while(end<nums.length-1 && nums[end] === nums[end+1]){
                 end -= 1
                 }
+                // only when both nums[start] and nums[end] are equal to its previous value then we need tomove the pointer? moving one pointer just because its same might end up missing some pairs.
             }else if(first < sum){
                 end -= 1
                 while(end<nums.length-1 && nums[end] === nums[end+1]){

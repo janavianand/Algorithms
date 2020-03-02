@@ -25,7 +25,7 @@ Boyer-moore solution
 we know that the for a given array we can get max two elements that might exceed the count.
 
 ex - [1,1,1,2,2,3,3,3] => a number cannot exceed 2. so output [1,3]
-ex - [1,1,1,2,2,3,3,3] => a number cannot exceed 3, output []
+ex - [1,1,2,2,3,3] => a number cannot exceed 3, output []
 
 Hence it is obvious that an array cannot have more than 2 invalid repeating numbers since the criteria is (more than n/3). if its n/4, then we will have 3 max numbers.
 

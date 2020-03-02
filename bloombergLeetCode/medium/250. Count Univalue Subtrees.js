@@ -47,6 +47,7 @@ var countUnivalSubtrees = function(root) {
         if(root.left){
             univalBool = dfs(root.left) && univalBool && root.left.val === root.val
         }
+        // the call is independent of the univalBool. so dont check it in if case. the recursive call should happen no matter the state of the flag
         if(root.right){
             univalBool = dfs(root.right) && univalBool && root.right.val === root.val
         }
