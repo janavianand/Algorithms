@@ -113,3 +113,90 @@ class MaxHeap{
 function swap(heap,i,j){
     [heap[i],heap[j]] = [heap[j],heap[i]]
 }
+
+//test question
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var frequencySort = function(s) {
+    if(!s.length || s.length<3){
+        return s
+    }
+
+    let map = new Map()
+
+    for(let char of s){
+        map.set(char,map.get(char)+1 || 1)
+    }
+
+    let maxHeap = new MaxHeap()
+
+    for(let [char,freq] of map){
+        maxHeap.add([char,freq])
+    }
+
+    let result = []
+
+    while(maxHeap.len){
+        let [char,freq] = maxHeap.pop()
+        result.push(char.repeat(freq))
+    }
+
+    return result.join('')
+};
+
+class MaxHeap{
+    constructor(){
+        this.heap = []
+        this.len = 0
+    }
+    add(value){
+        this.heap.push(value)
+        this.len = this.heap.length
+        if(this.len > 1){
+            this.swiftUp(this.len-1)
+        }
+    }
+    pop(){
+        swap(this.heap,0,this.len-1)
+        let rem = this.heap.pop()
+        this.len = this.heap.length
+        if(this.len > 1){
+            this.swiftDown(0)
+        }
+        return rem
+    }
+    swiftUp(index){
+        let par = Math.floor(Math.abs(index-1)/2)
+        if(par >= 0 && this.heap[par][1] < this.heap[index][1]){
+            swap(this.heap,par,index)
+            this.swiftUp(par)
+        }
+    }
+    swiftDown(index){
+        let ind1 = Math.floor(Math.abs(2*index+1))
+        let ind2 = Math.floor(Math.abs(2*index+2))
+        let child1 = this.heap[ind1] || [null,null]
+        let child2 = this.heap[ind2] || [null,null]
+
+        if((child1[1] || child2[1]) && (child1[1] > child2[1])){
+
+            if(this.heap[index][1] < child1[1]){
+                swap(this.heap,ind1,index)
+                this.swiftDown(ind1)
+            }
+        }else if(child2[1]){
+            if(this.heap[index][1] < child2[1]){
+                swap(this.heap,ind2,index)
+                this.swiftDown(ind2)
+            }
+        }
+
+    }
+}
+
+function swap(arr,i,j){
+    [arr[i],arr[j]] = [arr[j],arr[i]]
+}
